@@ -3,5 +3,4 @@ class Node
     @value = value
     @next_node = value
   end
-  attr_accessor :value, :next_node
 end
