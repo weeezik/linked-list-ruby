@@ -1,5 +1,5 @@
 class Node
-  def initialize(value = nil, next_node = nil)
+  def initialize value, next_node
     @value = value
     @next_node = next_node
   end
