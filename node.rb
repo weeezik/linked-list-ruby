@@ -3,7 +3,5 @@ class Node
     @value = value
     @next_node = next_node
   end
+  attr_accessor :value
 end
-
-dognode = Node.new("dog", nil)
-p dognode
