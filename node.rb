@@ -4,3 +4,6 @@ class Node
     @next_node = next_node
   end
 end
+
+dognode = Node.new("dog", nil)
+p dognode
