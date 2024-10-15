@@ -4,27 +4,32 @@ class LinkedList
 
   def initialize
     @tail = Node.new("tail", nil)
-    @head = Node.new("head", @tail.value)
+    @head = Node.new("head", @tail)
   end
 
   def append value
-    @append_node = Node.new(value, @tail.value)
-    # @all_nodes = 
+    # While the current node's next node is not the tail node, set the current node
+    # to the next node in the list.
+    # Once the current node's next node is the tail node, # set that current node's, 
+    # next node to a node with the value given and that points to the @tail node.
+    current_node = @head
+    while current_node.next_node != @tail
+      current_node = current_node.next_node
+    end
+    current_node.next_node = Node.new(value, @tail)
+  end
+  
+  def prepend value
 
-    # @prev_node  = for nodes in @all_nodes
-    #   return nodes where node.next_node == @tail.value
-    # end
-    # binding.irb
-   
-    @head.next_node = @append_node.value
   end
 
 end
 
+
+
 linkedlist = LinkedList.new
+puts linkedlist
+linkedlist.append("fish")
 # p linkedlist
-# p linkedlist.instance_variable_get(:@head)
 linkedlist.append(999)
-p linkedlist
-linkedlist.append("dog")
 p linkedlist
