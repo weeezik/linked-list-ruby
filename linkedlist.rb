@@ -8,22 +8,23 @@ class LinkedList
   end
 
   def append value
+    @append_node = Node.new(value, @tail.value)
     # @all_nodes = 
 
     # @prev_node  = for nodes in @all_nodes
     #   return nodes where node.next_node == @tail.value
     # end
-
-    @append_node = Node.new(value, @tail.value)
+    # binding.irb
+   
     @head.next_node = @append_node.value
-  end
-
-  def prepend value
-    @prepend_node = Node.new(value, @tail.value)
-    @head.next_node = @prepend_node.value
   end
 
 end
 
 linkedlist = LinkedList.new
-puts linkedlist.instance_variable_get(:@head).value
+# p linkedlist
+# p linkedlist.instance_variable_get(:@head)
+linkedlist.append(999)
+p linkedlist
+linkedlist.append("dog")
+p linkedlist
