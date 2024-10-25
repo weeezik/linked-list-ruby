@@ -12,6 +12,7 @@ class LinkedList
     # to the next node in the list.
     # Once the current node's next node is the tail node, # set that current node's, 
     # next node to a node with the value given and that points to the @tail node.
+    
     current_node = @head
     while current_node.next_node != @tail
       current_node = current_node.next_node
@@ -20,7 +21,7 @@ class LinkedList
   end
   
   def prepend value
-
+    
   end
 
 end
