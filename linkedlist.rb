@@ -13,15 +13,12 @@ class LinkedList
     # Once the current node's next node is the tail node, # set that current node's, 
     # next node to a node with the value given and that points to the @tail node.
     
-    current_node = @head
-    while current_node.next_node != @tail
-      current_node = current_node.next_node
-    end
-    current_node.next_node = Node.new(value, @tail)
   end
   
   def prepend value
-    
+  end
+
+  def to_string
   end
 
 end
@@ -29,8 +26,6 @@ end
 
 
 linkedlist = LinkedList.new
-puts linkedlist
-linkedlist.append("fish")
-# p linkedlist
-linkedlist.append(999)
+
+linkedlist.prepend("Michael")
 p linkedlist
