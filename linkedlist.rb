@@ -15,6 +15,24 @@ class LinkedList
     current_node.next_node = Node.new(value, @tail)
   end
 
+  def prepend value
+    second_node = @head.next_node
+    @head.next_node = Node.new(value, second_node)
+  end
+
+  def size
+    each_node = []
+    each_node << @head
+    until each_node[-1] == @tail
+      each_node << each_node[-1].next_node
+    end
+    puts each_node.size
+  end
+
+  def head
+    
+  end
+
   def to_s
     each_node = []
     each_node << @head
@@ -33,10 +51,10 @@ end
 
 the_list = LinkedList.new
 the_list.append('dog')
-the_list.append('cat')
-the_list.append('parrot')
-the_list.append('hamster')
-the_list.append('snake')
-the_list.append('turtle')
+the_list.prepend('cat')
+the_list.prepend('meow')
+the_list.prepend('red')
+the_list.append('cow')
 puts the_list
+the_list.size
 
