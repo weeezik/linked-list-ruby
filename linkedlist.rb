@@ -6,13 +6,13 @@ class LinkedList
     @head = Node.new("head", @tail)
   end
 
-  def append value #add node with given value to the end of the list
+  def append value #Add node with given value to the end of the list
     current_node = @head
-    if current_node.next_node != @tail
+    # binding.irb
+    while current_node.next_node != @tail
       current_node = current_node.next_node
-    else
-      current_node.next_node = Node.new(value, @tail)
     end
+    current_node.next_node = Node.new(value, @tail)
   end
 
   def to_s
@@ -32,6 +32,11 @@ class LinkedList
 end
 
 the_list = LinkedList.new
-puts the_list
 the_list.append('dog')
+the_list.append('cat')
+the_list.append('parrot')
+the_list.append('hamster')
+the_list.append('snake')
+the_list.append('turtle')
 puts the_list
+
