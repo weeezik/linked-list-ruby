@@ -90,7 +90,25 @@ class LinkedList
     outcome
   end
 
+  def find value
+    each_node = []
+    each_node << @head.next_node
+    until each_node[-1] == @tail
+      each_node << each_node[-1].next_node
+    end
 
+    index = nil
+    each_node.each_with_index do |node, idx|
+      if node.value == value
+        index = idx
+        break
+      else
+        next
+      end
+    end
+
+    index
+  end
 
 
 
@@ -124,3 +142,4 @@ the_list.at(1)
 the_list.pop
 puts the_list
 puts the_list.contains? "cat"
+p the_list.find("meow")
