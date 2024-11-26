@@ -56,17 +56,19 @@ class LinkedList
   end
 
   def pop
-    node = @head
-    until node.next_node == @tail
-      node = node.next_node
+    old_last_node = @head
+    until old_last_node.next_node == @tail
+      old_last_node = old_last_node.next_node
     end
-    node.next_node = nil # Point last node away from tail
+    old_last_node.next_node = nil # Point last node away from tail
 
-    node = @head
-    until node.next_node.next_node == @tail
-      node = node.next_node
+    # binding.irb
+    new_last_node = @head
+   
+    until new_last_node.next_node.value == old_last_node.value
+      new_last_node = new_last_node.next_node
     end
-    node.next_node = @tail
+    new_last_node.next_node = @tail # Point second to last node to tail, making it the new last node
   end
 
 
@@ -100,6 +102,5 @@ the_list.size
 the_list.head
 the_list.tail
 the_list.at(1)
-
 the_list.pop
 puts the_list
