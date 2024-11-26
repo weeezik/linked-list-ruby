@@ -30,8 +30,24 @@ class LinkedList
   end
 
   def head
-    
+    each_node = []
+    each_node << @head
+    until each_node[-1] == @tail
+      each_node << each_node[-1].next_node
+    end
+    puts each_node[1].value
   end
+
+  def tail
+    each_node = []
+    each_node << @head
+    until each_node[-1] == @tail
+      each_node << each_node[-1].next_node
+    end
+    puts each_node[-2].value
+  end
+
+  def 
 
   def to_s
     each_node = []
@@ -57,4 +73,6 @@ the_list.prepend('red')
 the_list.append('cow')
 puts the_list
 the_list.size
+the_list.head
+the_list.tail
 
