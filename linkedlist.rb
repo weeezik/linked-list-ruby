@@ -6,9 +6,8 @@ class LinkedList
     @head = Node.new("head", @tail)
   end
 
-  def append value #Add node with given value to the end of the list
+  def append value
     current_node = @head
-    # binding.irb
     while current_node.next_node != @tail
       current_node = current_node.next_node
     end
@@ -56,6 +55,24 @@ class LinkedList
     puts each_node[index].value
   end
 
+  def pop
+    node = @head
+    until node.next_node == @tail
+      node = node.next_node
+    end
+    node.next_node = nil # Point last node away from tail
+
+    node = @head
+    until node.next_node.next_node == @tail
+      node = node.next_node
+    end
+    node.next_node = @tail
+  end
+
+
+
+
+
   def to_s
     each_node = []
     each_node << @head.next_node
@@ -84,3 +101,5 @@ the_list.head
 the_list.tail
 the_list.at(1)
 
+the_list.pop
+puts the_list
