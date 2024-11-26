@@ -62,13 +62,32 @@ class LinkedList
     end
     old_last_node.next_node = nil # Point last node away from tail
 
-    # binding.irb
     new_last_node = @head
-   
     until new_last_node.next_node.value == old_last_node.value
       new_last_node = new_last_node.next_node
     end
     new_last_node.next_node = @tail # Point second to last node to tail, making it the new last node
+  end
+
+  def contains? value
+    each_node = []
+    each_node << @head.next_node
+    until each_node[-1] == @tail
+      each_node << each_node[-1].next_node
+    end
+
+    outcome = nil
+    each_node.each do |node|
+      if node.value == value
+        outcome = true
+        break
+      else
+        outcome = false
+        next
+      end
+    end
+
+    outcome
   end
 
 
@@ -104,3 +123,4 @@ the_list.tail
 the_list.at(1)
 the_list.pop
 puts the_list
+puts the_list.contains? "cat"
