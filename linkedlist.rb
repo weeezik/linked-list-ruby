@@ -2,7 +2,7 @@ require_relative 'node'
 
 class LinkedList
   def initialize
-    @tail = Node.new("tail", nil)
+    @tail = Node.new("nil", nil)
     @head = Node.new("head", @tail)
   end
 
@@ -26,32 +26,39 @@ class LinkedList
     until each_node[-1] == @tail
       each_node << each_node[-1].next_node
     end
-    puts each_node.size
+    puts "#{each_node.size - 2}"
   end
 
   def head
     each_node = []
-    each_node << @head
+    each_node << @head.next_node
     until each_node[-1] == @tail
       each_node << each_node[-1].next_node
     end
-    puts each_node[1].value
+    puts each_node[0].value
   end
 
   def tail
     each_node = []
-    each_node << @head
+    each_node << @head.next_node
     until each_node[-1] == @tail
       each_node << each_node[-1].next_node
     end
     puts each_node[-2].value
   end
 
-  def 
+  def at index
+    each_node = []
+    each_node << @head.next_node
+    until each_node[-1] == @tail
+      each_node << each_node[-1].next_node
+    end
+    puts each_node[index].value
+  end
 
   def to_s
     each_node = []
-    each_node << @head
+    each_node << @head.next_node
     until each_node[-1] == @tail
       each_node << each_node[-1].next_node
     end
@@ -75,4 +82,5 @@ puts the_list
 the_list.size
 the_list.head
 the_list.tail
+the_list.at(1)
 
